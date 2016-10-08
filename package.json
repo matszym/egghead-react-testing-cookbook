@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "tape-watch ./app/tests/test-loader.js -r babel-register | tap-spec"
+    "test": "tape-watch app/tests/test-loader.js -r babel-register | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
     "babel-register": "6.16.3",
+    "enzyme": "2.4.1",
     "react-addons-test-utils": "15.3.2",
     "tap-spec": "4.1.1",
     "tape": "4.6.2",

@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import CoolComponent from './CoolComponent';
+
 class MainComponent extends React.Component {
   render() {
     return (
-      <h1>React testing cookbook</h1>
+      <CoolComponent greeting="hello world" />
     );
   }
 }

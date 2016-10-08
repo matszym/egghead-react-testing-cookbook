@@ -5,6 +5,7 @@ RUN mkdir -p /home/nodejs/app
 
 ENV HOME=/home/nodejs
 ENV NODE_ENV=development
+ENV TERM=xterm
 
 RUN chown -R nodejs:nodejs /home/nodejs/app
 USER nodejs
