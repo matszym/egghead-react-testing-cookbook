@@ -6,5 +6,6 @@ tape.test('empty', nest => {
     const expected = true;
 
     test.equals(actual, expected);
-  })
+    test.end();
+  });
 });
