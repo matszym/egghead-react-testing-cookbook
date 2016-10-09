@@ -37,6 +37,17 @@ test('<LikeCoutner />', nested => {
 
       test.notOk(actual, msg);
       test.end();
-    });    
+    });
+  });
+  nested.test('should render like count', test => {
+    const numOfLikes = 5;
+    const wrapper = shallow(<LikeCounter counter={numOfLikes} />);
+
+    const actual = wrapper.text();
+    const expected = "Likes: 5";
+
+    test.equal(actual, expected);
+
+    test.end();
   });
 });
