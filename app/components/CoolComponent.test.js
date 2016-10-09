@@ -12,11 +12,11 @@ test('<CoolComponent />', nest => {
     const wrapper = shallow(<CoolComponent greeting={expected} />);
 
     const actual = wrapper
-    .findWhere(node => node.text() === expected && node.type() !== undefined)
-    .text();
-    const msg = `${actual} was expected to equal ${expected}`;
+    .text()
+    .includes(expected);
+    const msg = `${actual} was expected contains equal ${expected}`;
 
-    test.equal(actual, expected, msg);
+    test.assert(actual, msg);
     test.end();
   });
   nest.test('should render specific jsx', test => {
