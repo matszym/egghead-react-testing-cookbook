@@ -2,8 +2,9 @@ import React from 'react';
 
 class LikeCounter extends React.Component {
   render() {
+    const className = this.props.isActive ? 'LikeCounter--active' : '';
     return (
-      <a>{this.props.count}</a>
+      <a className={className}>{this.props.count}</a>
     );
   }
 }
