@@ -14,26 +14,29 @@ test('<LikeCoutner />', nested => {
     test.equal(actual, expected, msg);
     test.end();
   });
-  nested.test('should show the like count as active', test => {
-    const wrapper = shallow(<LikeCounter count={5} isActive={true} />);
-    
-    const className = "LikeCounter--active";
+  nested.test('isActive', nested => {
+    function renderLikeCounter(isActive) {
+      const wrapper = shallow(<LikeCounter count={5} isActive={isActive} />);
+      
+      const className = "LikeCounter--active";
 
-    const actual = wrapper.hasClass(className);
-    const msg = `${wrapper.node.props.className} should contain ${className}`;
+      const actual = wrapper.hasClass(className);
+      const msg = `${wrapper.node.props.className} should${!isActive && " not"} contain ${className}`;
 
-    test.assert(actual, msg);
-    test.end();
-  });
-  nested.test('should show the like count as inactive', test => {
-    const wrapper = shallow(<LikeCounter count={5} isActive={false}/>);
+      return {actual, msg};
+    }
 
-    const className = "LikeCounter--active";
+    nested.test('should show the like count as active', test => {
+      const {actual, msg} = renderLikeCounter(true);
 
-    const actual = wrapper.hasClass(className);
-    const msg = `${wrapper.node.props.className} should not contain ${className}`;
+      test.assert(actual, msg);
+      test.end();
+    });
+    nested.test('should show the like count as inactive', test => {
+      const {actual, msg} = renderLikeCounter(false);
 
-    test.notOk(actual, msg);
-    test.end();
+      test.notOk(actual, msg);
+      test.end();
+    });    
   });
 });
